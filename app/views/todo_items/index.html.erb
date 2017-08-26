@@ -1,0 +1,21 @@
+<h1 class="title"><%= @todo_list.title %></h1>
+<p><%= @todo_list.description %></p>
+
+<ul class="todo_items">
+	<% @todo_list.todo_items.each do |todo_item| %>
+		<li id="<%= dom_id(todo_item) %>">
+			<% if todo_item.completed_at.blank? %>
+				<%= link_to "Mark complete", complete_todo_list_todo_item_path(@todo_list, todo_item), method: :patch %>
+			<% else %>
+				<%= todo_item.completed_at %>
+			<% end %>
+			|
+			<%= todo_item.content %>
+			||
+			<%= link_to "Edit", edit_todo_list_todo_item_path(@todo_list, todo_item) %>
+			<%= link_to "Destroy", todo_list_todo_item_path(@todo_list, todo_item), method: :delete, data: { confirm: 'Are you sure?'} %>
+		</li>
+	<% end %>
+</ul>
+
+<p><%= link_to "New Todo Item", new_todo_list_todo_item_path(@todo_list) %></p>

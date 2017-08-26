@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todoapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1><%= link_to "ToDo", root_path %></h1>
+      <ul>
+        <li><%= link_to "Todo lists", todo_lists_path %></li>
+        <br class="clear" />
+      </ul>
+    </div>
+
+  	<% flash.each do |type, message| %>
+  		<div class="alert flash <%= type %>">
+  			<%= message %>
+  		</div>
+  	<% end %>
+    <%= yield %>
+  </body>
+</html>
