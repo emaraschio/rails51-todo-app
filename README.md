@@ -1,8 +1,10 @@
-# ToDo app
+# App Sample
 
-Built with Ruby on Rails.
+Built with RoR 5.1
 
 Used tools and libraries:
 * ruby
+* puma
+* sqlite3
 * rails
 * rspec
